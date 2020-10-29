@@ -1,13 +1,18 @@
-var rect=require('./rectangle')
+const rectangle = require("./rectangle");
+var rect = require("./rectangle");
 
 const solveRect = (l, b) => {
   console.log("Ingresed parameters are l " + l + "  and b " + b);
-  if (l <= 0 || b <= 0) {
-    console.log("Ingresed parameters must be highest than zero");
-  } else {
-    console.log("The perimeter of the body is =" + rect.perimeter(l, b));
-    console.log("The area of the body is =" + rect.area(l, b));
-  }
+  rect(l, b, (err, rectangle) => {
+    if (err) {
+      console.log("Error", err.message);
+    } else {
+      console.log("the area of the rectangle is= " + rectangle.area());
+      console.log(
+        "the perimeter of the rectangle is= " + rectangle.perimeter()
+      );
+    }
+  });
 };
 
-solveRect(0, 4);
+solveRect(2, 4);
