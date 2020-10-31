@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const morgan = require("morgan");
+const dishRoute= require('./routes/dishRoute');
 
 const hostname = "localhost";
 const port = 3000;
@@ -8,6 +9,7 @@ const port = 3000;
 const app = express();
 
 app.use(morgan("dev"));
+app.use('/dishes', dishRoute);
 
 app.use(express.static(__dirname + "/public"));
 
